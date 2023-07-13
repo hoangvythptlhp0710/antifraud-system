@@ -11,9 +11,9 @@ public class TransactionServiceImpl implements TransactionService{
 
     @Override
     public ResponseEntity<Response> checkTransaction(Transaction transaction) {
-        Long amount = transaction.getAmount();
+        Long amount;
         try {
-
+            amount = Long.parseLong(transaction.getAmount().toString());
         }
         catch (NumberFormatException e){
             amount = 0L;
